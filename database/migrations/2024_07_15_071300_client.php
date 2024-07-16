@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        schema::create('client', function (Blueprint $table) {
+            $table->id();
+            $table->string('ipAddress');
+            $table->string('namaClient');
+            $table->string('status');
+            $table->foreignId('Blok_id')->constrained('blok')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

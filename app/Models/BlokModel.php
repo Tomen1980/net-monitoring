@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlokModel extends Model
 {
-    use HasFactory;
+    protected $table = 'blok';
+    
+    public $timestamps = false;
 }

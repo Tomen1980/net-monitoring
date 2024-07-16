@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class LoggingModel extends Model
 {
-    use HasFactory;
+    protected $table = 'logging';
+    public $timestamps = false;
 }

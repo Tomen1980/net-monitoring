@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        schema ::create('logging', function (Blueprint $table) {
+            $table->id();
+            $table->string('aktivitas');
+            $table->date('tanggal');
+            $table->time('waktu');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+        });
     }
 
     /**

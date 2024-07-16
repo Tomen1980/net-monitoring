@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        schema ::create('blok', function (Blueprint $table) {
+            $table->id();
+            $table->string('namaBlok');
+            $table->string('telpBlok');
+            $table->string('alamatBlok');
+        });
     }
 
     /**
