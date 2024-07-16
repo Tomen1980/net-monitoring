@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('ipAddress');
             $table->string('namaClient');
             $table->string('status');
-            $table->foreignId('Blok_id')->constrained('blok')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('blok_id')->references('id')->on('blok')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

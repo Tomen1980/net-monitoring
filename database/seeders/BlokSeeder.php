@@ -16,14 +16,14 @@ class BlokSeeder extends Seeder
     {
         BlokModel::create([
             'id' => 1,
-            'namaBLok' => 'Random stasiun I',
+            'namaBlok' => 'Random stasiun I',
             'telpBlok'=>'(023)131-2032',
             'alamatBlok'=>'jl.Siliwangi'
         ]);
 
         BlokModel::create([
             'id' => 2,
-            'namaBLok' => 'Random stasiun II',
+            'namaBlok' => 'Random stasiun II',
             'telpBlok'=>'(023)122-3511',
             'alamatBlok'=>'Jl.mekar sucisaa'
         ]);
