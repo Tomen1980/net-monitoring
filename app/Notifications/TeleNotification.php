@@ -6,6 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use NotificationChannels\Telegram\TelegramMessage;
+use NotificationChannels\Telegram\TelegramChannel;
 
 class TeleNotification extends Notification
 {
@@ -14,9 +16,10 @@ class TeleNotification extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public $blokName;
+    public function __construct($blokName)
     {
-        //
+        $this->blokName = $blokName;
     }
 
     /**
@@ -26,18 +29,21 @@ class TeleNotification extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return [TelegramChannel::class];
     }
 
     /**
      * Get the mail representation of the notification.
      */
-    public function toMail(object $notifiable): MailMessage
+    public function toTelegram(object $notifiable)
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        try {
+            return TelegramMessage::create()
+                ->to('5172910639')
+                ->content($this->blokName);
+        } catch (\Exception $ex) {
+            \Log::error($ex);
+        }
     }
 
     /**
@@ -48,7 +54,7 @@ class TeleNotification extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
-        ];
+                //
+            ];
     }
 }
