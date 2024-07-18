@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BlokModel extends Model
 {
     protected $table = 'blok';
+    protected $guarded = ['id'];
     
     public $timestamps = false;
 }

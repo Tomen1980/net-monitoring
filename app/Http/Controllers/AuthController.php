@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function login()
@@ -67,6 +68,49 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/login');
+    }
+
+    public function profile(){
+       return view('profile.index');
+    }
+
+    public function updateProfile(Request $request){
+        $validation = $request->validate([
+            'email' => 'email',
+            'name' => 'min:3',
+            'old_password' => 'required|min:6',
+            'new_password' => 'nullable|min:6',
+            'new_password_confirmation' => 'nullable|min:6|same:new_password',
+        ]);
+
+        $user = User::find(Auth::user()->id);
+
+        if(!Hash::check($request->old_password, $user->password)){
+            return redirect('/profile')->with('error', 'Old password not match');
+        }
+        if($request->new_password !== null ){
+            if($request->new_password !== $request->new_password_confirmation){
+                return redirect('/profile')->with('error', 'New Password not match');
+            }else{
+                $newPassword = Hash::make($request->new_password);
+            }
+        }else{
+            $newPassword = $user->password;
+        }
+
+        if($request->email !== $user->email){
+            $emailExist = User::where('email', $request->email)->exists();
+            if($emailExist){
+                return redirect('/profile')->with('error', 'Email already exist');
+            }
+        }
+        
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->password = $newPassword;
+        $user->save();
+        return redirect('/profile')->with('success', 'Update success');
+
     }
 
     public function dashboard(){
