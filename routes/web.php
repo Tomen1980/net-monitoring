@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlokController;
+use App\Http\Controllers\IpAddressController;
+use App\Http\Controllers\LoggerController;
 
 Route::get('/', function () {
     return view('welcome');

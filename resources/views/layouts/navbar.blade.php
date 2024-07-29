@@ -15,13 +15,16 @@
                 </div>
                 <div class="flex-1 flex items-center justify-between sm:items-stretch sm:justify-between">
                     <div class="flex-shrink-0">
-                        <a href="#" class="text-2xl font-bold text-gray-900">MyApp</a>
+                        <a href="/dashboard" class="text-2xl font-bold text-gray-900">NetMonitoring</a>
                     </div>
                     <div class="hidden sm:flex sm:space-x-4">
-                        <a href="#" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Monitoring</a>
-                        <a href="#" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">List Monitoring</a>
-                        <a href="#" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Block</a>
-                        <a href="#" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">IP</a>
+                        <a href="/dashboard" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                        <a href="/list-monitoring" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">List Monitoring</a>
+                        @if(Auth::user()->role == 'admin')
+                        <a href="/blok" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Block</a>
+                        <a href="/ipAddress" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">IP</a>
+                        <a href="/logger" class="text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Log</a>
+                        @endif
                         <div class="relative">
                             <button id="profileButton" class="flex items-center text-gray-900 px-3 py-2 rounded-md text-sm font-medium focus:outline-none">
                                 {{Auth::user()->name}}
@@ -30,7 +33,7 @@
                                 </svg>
                             </button>
                             <div id="profileDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                                <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
                                 <form action="/logout" method="POST">
                                     @csrf
                                     @method('DELETE')
@@ -45,13 +48,16 @@
 
         <div class="sm:hidden" id="mobileMenu">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Monitoring</a>
-                <a href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">List Monitoring</a>
-                <a href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Block</a>
-                <a href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">IP</a>
+                <a href="/dashboard" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+                <a href="/list-monitoring" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">List Monitoring</a>
+                @if(Auth::user()->role == 'admin')
+                <a href="/blok" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Block</a>
+                <a href="/ipAddress" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">IP</a>
+                <a href="/logger" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Log</a>
+                @endif
                 <a id="profileMobileButton" href="#" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Profile</a>
                 <div id="profileMobileDropdown" class="hidden px-2 pt-2 pb-3 space-y-1">
-                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Profile</a>
+                    <a href="/profile" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100">Profile</a>
                     <form action="/logout" method="POST">
                         @csrf
                         @method('DELETE')

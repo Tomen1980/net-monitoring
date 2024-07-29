@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class LoggingModel extends Model
 {
     protected $table = 'logging';
+    protected $guarded = [];
     public $timestamps = false;
 }

@@ -17,6 +17,7 @@
             @method('POST')
             <div class="rounded-md shadow-sm">
                 <div>
+                    
                     <label for="email" class="sr-only">Email address</label>
                     <input id="email" name="email" type="email" autocomplete="email" required
                         class="relative block w-full px-3 py-2 border border-gray-300 rounded-t-md placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
