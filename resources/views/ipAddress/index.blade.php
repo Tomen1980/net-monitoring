@@ -59,6 +59,7 @@
             </tbody>
         </table>
     </div>
+    {{ $ips->links() }}
 </div>
 
 @endsection

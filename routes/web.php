@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlokController;
 use App\Http\Controllers\IpAddressController;
+use App\Http\Controllers\LoggerController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,18 +24,28 @@ Route::middleware(['RedirectAuth'])->group(function () {
     Route::get('/profile', [AuthController::class, 'profile']);
     Route::put('/update-profile', [AuthController::class, 'updateProfile']);
     // BLOK
-    Route::get('/blok', [BlokController::class, 'index']);
-    Route::get('/blok/form', [BlokController::class, 'create']);
-    Route::post('/submit-blok', [BlokController::class, 'store']);
-    Route::delete('/blok/delete/{id}', [BlokController::class, 'destroy']);
-    Route::get('/blok/update/{id}', [BlokController::class, 'show']);
-    Route::put('/update-blok', [BlokController::class, 'update']);
+    Route::get('/blok', [BlokController::class, 'index'])->middleware('AdminRoute');
+    Route::get('/blok/form', [BlokController::class, 'create'])->middleware('AdminRoute');
+    Route::post('/submit-blok', [BlokController::class, 'store'])->middleware('AdminRoute');
+    Route::delete('/blok/delete/{id}', [BlokController::class, 'destroy'])->middleware('AdminRoute');
+    Route::get('/blok/update/{id}', [BlokController::class, 'show'])->middleware('AdminRoute');
+    Route::put('/update-blok', [BlokController::class, 'update'])->middleware('AdminRoute');
 
     // IP ADDRESS
-    Route::get('/ipAddress', [IpAddressController::class, 'index']);
-    Route::get('/ipAddress/create', [IpAddressController::class, 'create']);
-    Route::post('/submit-ip', [IpAddressController::class, 'store']);
-    Route::get('/ipAddress/update/{id}', [IpAddressController::class, 'show']);
-    Route::put('/update-ip', [IpAddressController::class, 'update']);
-    Route::delete('/ipAddress/delete/{id}', [IpAddressController::class, 'destroy']);
+    Route::get('/ipAddress', [IpAddressController::class, 'index'])->middleware('AdminRoute');
+    Route::get('/ipAddress/create', [IpAddressController::class, 'create'])->middleware('AdminRoute');
+    Route::post('/submit-ip', [IpAddressController::class, 'store'])->middleware('AdminRoute');
+    Route::get('/ipAddress/update/{id}', [IpAddressController::class, 'show'])->middleware('AdminRoute');
+    Route::put('/update-ip', [IpAddressController::class, 'update'])->middleware('AdminRoute');
+    Route::delete('/ipAddress/delete/{id}', [IpAddressController::class, 'destroy'])->middleware('AdminRoute');
+
+    // Monitoring
+    Route::get('/list-monitoring', [BlokController::class, 'getListMonitoring']);
+    Route::get('/monitoring/ip/{id}', [IpAddressController::class, 'showMonitoring']);
+
+
+    // Logger 
+    Route::get('/logger', [LoggerController::class, 'index']);
+    Route::delete('/logger/delete/{id}', [LoggerController::class, 'destroy']);
+    Route::delete('/logger/destroyAll',[LoggerController::class, 'destroyAll']);
 });
