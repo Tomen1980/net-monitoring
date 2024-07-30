@@ -9,20 +9,24 @@
             <img src='img/clipboard-text.png' alt=''class='w-[34px] h-[30px]'>
             <p class='font-Fredoka font-medium text-2xl ml-2 mt-1 text-[#A9A9A9]'>List Blok</p>
         </div>
-        <ul class='ml-5 mt-5 border-2 border-red-700'>
+        <ul class='ml-5 mt-5'>
             @foreach ($Blok as $item)
             <li class='flex ml-5 mt-2 h-9 items-center  hover:bg-[#E5EBEE] hover:rounded-md hover:w-[90%]  '>
                 <img src='img/bus.png' alt=''class='w-[38px] h-[35px]'>
                 <p class='font-Fredoka  text-2xl ml-2 mt-1 text-[#3C8DBC] font-medium'>{{ $item->namaBlok }}</p>
-                <div class=' flex absolute right-16 space-x-1'>
-                    <a href="/EditBlok">
+                <div class=' flex absolute right-16 space-x-1 mt-4'>
+                    <a href="/blok/form">
                         <button class=' items-center'>
-                            <img src='img/edit.png' alt=''class='w-[25px] h-[25px] '>
+                            <img src='img/edit.png' alt=''class='w-[20px] h-[20px] '>
                         </button>
                     </a>
-                    <button type ='submit' class=' items-center'>
-                        <img src='img/sampah.png' alt=''class='w-[25px] h-[25px] '>
-                    </button>   
+                    <form action="/blok/delete/{{ $item->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type ='submit' class=' items-center'>
+                            <img src='img/sampah.png' alt=''class='w-[20px] h-[20px] '>
+                        </button>   
+                    </form>
                 </div>
             </li>
             @endforeach

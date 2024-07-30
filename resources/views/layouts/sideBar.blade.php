@@ -28,7 +28,7 @@
         <div class='flex bg-[#222D32] rounded-lg absolute-top-0 w-full'>
             <ul id='dropdown' class='font-Fredoka w-full overflow-hidden max-h-0 transition-all duration-500 ease-in-out'>
                 <li class='flex flex-row w-[100%] h-[45px] hover:bg-[#5A6D77] rounded-lg p-2'>
-                    <a href="/#" class='text-[#8699AD] font-medium text-xl ml-14'>Log Laporan E-mail</a>
+                    <a href="/logger" class='text-[#8699AD] font-medium text-xl ml-14'>Log Laporan E-mail</a>
                 </li>
                 <li class='flex flex-row w-[100%] h-[45px] hover:bg-[#5A6D77] rounded-lg p-2'>
                     <a href="/#" class='text-[#8699AD] font-medium text-xl ml-14'>Tambah Blok</a>
