@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-[#E5EBEE]">
     @yield('content')
 
     <script defer>

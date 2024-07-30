@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\BlokModel;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use App\Models\LoggingModel;
 use Illuminate\Support\Facades\Auth;
 
@@ -114,6 +115,60 @@ class BlokController extends Controller
         // return dd($blok);
         return view('monitoring.listMonitoring', [
             'bloks' => $bloks,
+        ]);
+    }
+    public function ListBlok(){
+        $Blok = BlokModel::all();
+
+        $statuses = DB::table('client')
+        ->select('status', DB::raw('count(*) as total'))
+        ->whereIn('status', ['Destination net unreachable','Destination host unreachable', 'Request timed out', 'Connected', 'Disconnected'])
+        ->groupBy('status')
+        ->get();
+
+    // Format hasil untuk memudahkan akses
+    $formattedStatuses = $statuses->pluck('total', 'status')->all();
+
+    $totalDestinationNetUnreachable = $formattedStatuses['Destination net unreachable'] ?? 0;
+    $totalDestinationHostUnreachable = $formattedStatuses['Destination host unreachable'] ?? 0;
+    $totalRequestTimedOut = $formattedStatuses['Request timed out'] ?? 0;
+    $totalConnected = $formattedStatuses['Connected'] ?? 0;
+    $totalDisconnected = $formattedStatuses['Disconnected'] ?? 0;
+
+
+        return view('ListBlok',[
+            'Blok' => $Blok,
+            'dnu' => $totalDestinationNetUnreachable,
+            'dhu' => $totalDestinationHostUnreachable,
+            'rto' => $totalRequestTimedOut,
+            'cnt' => $totalConnected,
+            'dc' => $totalDisconnected
+        ]);
+    }
+    public function Status()
+    {
+        
+        $statuses = DB::table('client')
+            ->select('status', DB::raw('count(*) as total'))
+            ->whereIn('status', ['Destination net unreachable','Destination host unreachable', 'Request timed out', 'Connected', 'Disconnected'])
+            ->groupBy('status')
+            ->get();
+
+        // Format hasil untuk memudahkan akses
+        $formattedStatuses = $statuses->pluck('total', 'status')->all();
+
+        $totalDestinationNetUnreachable = $formattedStatuses['Destination net unreachable'] ?? 0;
+        $totalDestinationHostUnreachable = $formattedStatuses['Destination host unreachable'] ?? 0;
+        $totalRequestTimedOut = $formattedStatuses['Request timed out'] ?? 0;
+        $totalConnected = $formattedStatuses['Connected'] ?? 0;
+        $totalDisconnected = $formattedStatuses['Disconnected'] ?? 0;
+
+        return view('dashboard',[
+            'dnu' => $totalDestinationNetUnreachable,
+            'dhu' => $totalDestinationHostUnreachable,
+            'rto' => $totalRequestTimedOut,
+            'cnt' => $totalConnected,
+            'dc' => $totalDisconnected
         ]);
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\LoggingModel;
+use App\Models\BlokModel;
 use Carbon\Carbon;
 class AuthController extends Controller
 {
@@ -168,7 +169,5 @@ class AuthController extends Controller
         ]);
     }
 
-    public function ListBlok(){
-        return view('ListBlok');
-    }
+    
 }

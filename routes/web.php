@@ -21,5 +21,6 @@ Route::middleware(['LoginProtect'])->group(function () {
 Route::middleware(['RedirectAuth'])->group(function () {
     Route::delete('/logout', [AuthController::class, 'logout']);
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
-    Route::get('/ListBlok', [AuthController::class, 'ListBlok']);
+    Route::get('/ListBlok', [BlokController::class, 'ListBlok']);
+    
 });
