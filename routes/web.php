@@ -22,7 +22,7 @@ Route::middleware(['RedirectAuth'])->group(function () {
     Route::delete('/logout', [AuthController::class, 'logout']);
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
     Route::get('/ListBlok', [BlokController::class, 'ListBlok']);
-    Route::get('/blok', [BlokController::class, 'index'])->middleware('AdminRoute');
+    // Route::get('/blok', [BlokController::class, 'index'])->middleware('AdminRoute');
     Route::get('/blok/form', [BlokController::class, 'create'])->middleware('AdminRoute');
     Route::post('/submit-blok', [BlokController::class, 'store'])->middleware('AdminRoute');
     Route::delete('/blok/delete/{id}', [BlokController::class, 'destroy'])->middleware('AdminRoute');

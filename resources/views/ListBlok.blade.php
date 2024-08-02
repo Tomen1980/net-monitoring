@@ -15,7 +15,7 @@
                 <img src='img/bus.png' alt=''class='w-[38px] h-[35px]'>
                 <p class='font-Fredoka  text-2xl ml-2 mt-1 text-[#3C8DBC] font-medium'>{{ $item->namaBlok }}</p>
                 <div class=' flex absolute right-16 space-x-1 mt-4'>
-                    <a href="/blok/form">
+                    <a href="/blok/update/{{ $item->id }}">
                         <button class=' items-center'>
                             <img src='img/edit.png' alt=''class='w-[20px] h-[20px] '>
                         </button>

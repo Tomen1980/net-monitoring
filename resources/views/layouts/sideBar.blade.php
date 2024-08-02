@@ -31,7 +31,7 @@
                     <a href="/logger" class='text-[#8699AD] font-medium text-xl ml-14'>Log Laporan E-mail</a>
                 </li>
                 <li class='flex flex-row w-[100%] h-[45px] hover:bg-[#5A6D77] rounded-lg p-2'>
-                    <a href="/#" class='text-[#8699AD] font-medium text-xl ml-14'>Tambah Blok</a>
+                    <a href="/blok/form" class='text-[#8699AD] font-medium text-xl ml-14'>Tambah Blok</a>
                 </li>
                 <li class='flex flex-row w-[100%] h-[45px] hover:bg-[#5A6D77] rounded-lg p-2'>
                     <a href="/#" class='text-[#8699AD] font-medium text-xl ml-14'>Tambah IP</a>

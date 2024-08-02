@@ -56,9 +56,9 @@ class BlokController extends Controller
                 'user_id' => Auth::user()->id
             ]);
 
-            return redirect('/blok')->with('success', 'Blok created');
+            return redirect('ListBlok')->with('success', 'Blok created');
         }catch(\Exception $e){
-            return redirect('/blok')->with('error', $e->getMessage());
+            return redirect('/ListBlok')->with('error', $e->getMessage());
         }
     }
 
@@ -90,9 +90,9 @@ class BlokController extends Controller
                 'user_id' => Auth::user()->id
             ]);
 
-            return redirect('/blok')->with('success', 'Blok updated');
+            return redirect('ListBlok')->with('success', 'Blok updated');
         } catch(\Exception $e){
-            return redirect('/blok')->with('error', $e->getMessage());
+            return redirect('ListBlok')->with('error', $e->getMessage());
         }
     }
 
@@ -107,7 +107,7 @@ class BlokController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        return redirect('/blok')->with('success', 'Blok deleted');
+        return redirect('ListBlok')->with('success', 'Blok deleted');
     }
 
     public function getListMonitoring(){
