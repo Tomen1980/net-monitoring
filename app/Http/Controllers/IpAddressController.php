@@ -126,7 +126,7 @@ class IpAddressController extends Controller
     }
 
     public function showMonitoring($id){
-        $ip = DB::table('client')->where('blok_id', $id)->paginate(20);
+        $ip = DB::table('client')->where('blok_id', $id)->paginate(7);
         $blok = BlokModel::select('namaBlok')->where('id', $id)->first();
         // return dd($blok);
         return view('monitoring.monitoringIp', [

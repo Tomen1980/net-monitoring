@@ -15,13 +15,13 @@
                 @endif
 
                 <div>
-                    <label for="ip_address" class="sr-only">IP Address</label>
+                    <label for="ip_address" class="sr-only text-[#777777]">IP Address</label>
                     @error('ip_address')
                         <div class="text-sm text-red-600">{{ $message }}</div>
                     @enderror
                     <input id="ip_address" name="ip_address" type="text"
                         value="{{ old('ip_address', $action == 'update' ? $data->ipAddress : '') }}" required
-                        class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none "
+                        class="block w-full px-4 py-2 border bg-[#D7D7D7] border-gray-300 rounded-md focus:outline-none "
                         placeholder="IP Address">
                 </div>
                 <div>
@@ -31,7 +31,7 @@
                     @enderror
                     <input id="client_name" name="client_name" type="text"
                         value="{{ old('ip_address', $action == 'update' ? $data->namaClient : '') }}" required
-                        class="block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none "
+                        class="block w-full px-4 py-2 border bg-[#D7D7D7] border-gray-300 rounded-md focus:outline-none "
                         placeholder="Nama Client">
                 </div>
                 <div>
