@@ -4,7 +4,7 @@
 @include('layouts.sidebar')
 
 @if (Auth::user()->role == 'admin')
-    <div class="container mt-36 ml-11 w-[1100px] font-Fredoka overflow-y-auto">
+    <div class="container mt-36 ml-11 w-[1100px] font-Fredoka ">
         <div class="flex justify-between items-center mb-4">
             <h1 class="text-2xl font-medium">IP Address Table</h1>
             <a href="/ipAddress/create"
@@ -45,12 +45,20 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">{{$item->namaBlok}}</td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="/ipAddress/update/{{ $item->id }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                            <form action="/ipAddress/delete/{{ $item->id }}" method="POST" class="inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:text-red-900 ml-4">Hapus</button>
-                            </form>
+                            <div class=flex >
+                                <a href="/ipAddress/update/{{ $item->id }}">
+                                    <button class=' items-center'>
+                                        <img src='img/edit.png' alt=''class='w-[20px] h-[20px] '>
+                                    </button>
+                                </a>
+                                <form action="/ipAddress/delete/{{ $item->id }}" method="POST" >
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-red-600 hover:text-red-900 ml-4">
+                                        <img src='img/sampah.png' alt=''class='w-[20px] h-[20px] '>
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
 
