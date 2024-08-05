@@ -21,7 +21,7 @@ class IpAddressController extends Controller
     }
     public function index()
     {
-        $ip = DB::table('client')->leftJoin('blok', 'blok.id', '=', 'client.blok_id')->select('client.*', 'blok.namaBlok')->latest('id')->paginate(20);
+        $ip = DB::table('client')->leftJoin('blok', 'blok.id', '=', 'client.blok_id')->select('client.*', 'blok.namaBlok')->latest('id')->paginate(7);
         // return dd($ip);
         return view('ipAddress.index', [
             'ips' => $ip,

@@ -30,7 +30,7 @@ Route::middleware(['RedirectAuth'])->group(function () {
     Route::put('/update-blok', [BlokController::class, 'update'])->middleware('AdminRoute');
 
     // IP ADDRESS
-    Route::get('/ipAddress', [IpAddressController::class, 'index'])->middleware('AdminRoute');
+    Route::get('/ipAddress', [IpAddressController::class, 'index']);
     Route::get('/ipAddress/create', [IpAddressController::class, 'create'])->middleware('AdminRoute');
     Route::post('/submit-ip', [IpAddressController::class, 'store'])->middleware('AdminRoute');
     Route::get('/ipAddress/update/{id}', [IpAddressController::class, 'show'])->middleware('AdminRoute');

@@ -9,22 +9,25 @@ class LoggerController extends Controller
 {
 
     public function index()
-    {
+{
+    // Paginate the logs with 7 items per page
+    $logs = LoggingModel::paginate(7);
+    return view('logging.index', [
+        'logs' => $logs
+    ]);
+}
 
-        $logs = LoggingModel::paginate(20);
-        return view('logging.index',[
-            'logs' => $logs
-        ]);
-    }
+public function destroy($id)
+{
+    $log = LoggingModel::find($id);
+    $log->delete();
+    return redirect('/logger')->with('success', 'Log deleted');
+}
 
-    public function destroy($id){
-        $log = LoggingModel::find($id);
-        $log->delete();
-        return redirect('/logger')->with('success', 'Log deleted');
-    }
+public function destroyAll()
+{
+    LoggingModel::truncate();
+    return redirect('/logger')->with('success', 'All logs deleted');
+}
 
-    public function destroyAll(){
-        LoggingModel::truncate();
-        return redirect('/logger')->with('success', 'All logs deleted');
-    }
 }
