@@ -3,7 +3,7 @@
 @include('layouts.header')
 @include('layouts.sidebar')
 
-<div class="container mx-auto p-6 border-2 mt-28 ml-11 w-[1100px]">
+<div class="container mx-auto p-6 border-2 mt-28 ml-11 w-[1100px] font-Fredoka">
     <div class="flex justify-between items-center mb-4">
         <h1 class="text-2xl font-medium font-Fredoka">Log Aktivitas</h1>
         <form action="/logger/destroyAll" method="POST">

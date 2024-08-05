@@ -9,17 +9,17 @@
         <div class='flex flex-col mt-3'>
             <a href="/ListBlok" class='flex flex-row w-full hover:bg-[#3F5159] rounded-lg p-1'>
                 <div class='flex'>
-                    <img src='img/menu.png' alt="" class='w-[35px] h-[35px] ml-2'>
+                    <img src='/img/menu.png' alt="" class='w-[35px] h-[35px] ml-2'>
                 </div>
                 <p class='text-white ml-4 font-medium text-xl mt-1 font-Fredoka'>List Blok</p>
             </a>
             <div class='flex flex-row w-full hover:bg-[#3F5159] rounded-lg p-1 mt-3'>
                 <div class='flex'>
-                    <img src='img/setting-3.png' alt="" class='w-[35px] h-[35px] ml-2'>
+                    <img src='/img/setting-3.png' alt="" class='w-[35px] h-[35px] ml-2'>
                 </div>
                 <p class='text-white ml-4 font-medium text-xl mt-1 font-Fredoka'>Pengaturan</p>
                 <button id="dropdownButton" class='bg-[#D9D9D9] w-[31px] h-[25px] rounded-lg absolute right-10 mt-1 items-center'>
-                    <img id="dropdownIcon" src='img/triangle.png' alt="" class='h-[10px] w-[17px] ml-1.5 transition duration-300'>
+                    <img id="dropdownIcon" src='/img/triangle.png' alt="" class='h-[10px] w-[17px] ml-1.5 transition duration-300'>
                 </button>
             </div>
             <div class='flex bg-[#222D32] rounded-lg absolute-top-0 w-full'>
@@ -31,7 +31,7 @@
                         <a href="/blok/form" class='text-[#8699AD] font-medium text-xl ml-14'>Tambah Blok</a>
                     </li>
                     <li class='flex flex-row w-[100%] h-[45px] hover:bg-[#5A6D77] rounded-lg p-2'>
-                        <a href="/ipAddress" class='text-[#8699AD] font-medium text-xl ml-14'>Tambah IP</a>
+                        <a href="/ipAddress" class='text-[#8699AD] font-medium text-xl ml-14'>IP Address</a>
                     </li>
                 </ul>
             </div>
@@ -39,7 +39,7 @@
                 @csrf
                 @method('DELETE')
                 <button class='flex flex-row w-full hover:bg-[#3F5159] rounded-lg p-1 mt-3'>
-                    <img src='img/logout.png' alt="" class='w-[35px] h-[35px] ml-1'>
+                    <img src='/img/logout.png' alt="" class='w-[35px] h-[35px] ml-1'>
                     <p class='text-[#E16F6F] ml-4 font-medium text-xl mt-1 font-Fredoka'>Logout</p>
                 </button>
             </form>
@@ -50,13 +50,13 @@
         <div class='flex flex-col mt-3'>
             <a href="/ListBlok" class='flex flex-row w-full hover:bg-[#3F5159] rounded-lg p-1'>
                 <div class='flex'>
-                    <img src='img/menu.png' alt="" class='w-[35px] h-[35px] ml-2'>
+                    <img src='/img/menu.png' alt="" class='w-[35px] h-[35px] ml-2'>
                 </div>
                 <p class='text-white ml-4 font-medium text-xl mt-1 font-Fredoka'>List Blok</p>
             </a>
             <a href="/ipAddress" class='flex flex-row w-full hover:bg-[#3F5159] rounded-lg p-1'>
                 <div class='flex'>
-                    <img src='img/menu.png' alt="" class='w-[35px] h-[35px] ml-2'>
+                    <img src='/img/menu.png' alt="" class='w-[35px] h-[35px] ml-2'>
                 </div>
                 <p class='text-white ml-4 font-medium text-xl mt-1 font-Fredoka'>IP Address</p>
             </a>
@@ -86,7 +86,7 @@
                 @csrf
                 @method('DELETE')
                 <button class='flex flex-row w-full hover:bg-[#3F5159] rounded-lg p-1 mt-3'>
-                    <img src='img/logout.png' alt="" class='w-[35px] h-[35px] ml-1'>
+                    <img src='/img/logout.png' alt="" class='w-[35px] h-[35px] ml-1'>
                     <p class='text-[#E16F6F] ml-4 font-medium text-xl mt-1 font-Fredoka'>Logout</p>
                 </button>
             </form>
