@@ -49,7 +49,7 @@
                                         <form action="/ipAddress/delete/{{ $item->id }}" method="POST" >
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-red-600 hover:text-red-900 ml-4">
+                                            <button type="submit" class="text-red-600 hover:text-red-900 ml-4" onclick="return confirm('Are you sure?')>
                                                 <img src='/img/sampah.png' alt=''class='w-[20px] h-[20px] '>
                                             </button>
                                         </form>

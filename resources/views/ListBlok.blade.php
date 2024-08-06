@@ -34,7 +34,7 @@
                     <div class="flex  mx-auto mt-2 h-9 items-center justify-between">
                         <div class=" flex items-center justify-center">
                             <img src='img/bus.png' alt=''class='w-[38px] h-[35px] '>
-                            <a href="/monitoring/ip/{{$item->id}}" class="font-Fredoka  text-2xl ml-2 mt-1 text-[#3C8DBC] font-medium">{{ $item->namaBlok }}</a>
+                            <a href="/monitoring/ip/{{$item->id}}" class="font-Fredoka  text-2xl ml-2 mt-1 text-[#3C8DBC] font-medium hover:text-sky-700">{{ $item->namaBlok }}</a>
                         </div>
                         <div class="flex space-x-1  justify-center items-center mr-10">
 
@@ -43,7 +43,7 @@
                                 </a>
                                 <div class="w-[20px] h-[20px] ">
                                     <form action="/blok/delete/{{ $item->id }}" method="POST">
-                                        <button>    
+                                        <button onclick="return confirm('Are you sure?')">    
                                             <img src='/img/sampah.png' alt=''class='object-cover w-full h-full'>
                                         </button>
                                     </form>
