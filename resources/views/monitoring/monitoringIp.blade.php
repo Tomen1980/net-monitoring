@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-@include('layouts.header')
-@include('layouts.sidebar')
+    @include('layouts.header')
+    @include('layouts.sidebar')
     <div class="container mt-36 ml-11 w-[1100px] p-6 font-Fredoka">
         <div class="flex justify-between items-center mb-4">
-            <h1 class="text-2xl font-medium">IP Address {{$blokName}}</h1>
+            <h1 class="text-2xl font-medium">IP Address {{ $blokName }}</h1>
         </div>
 
         @if (session()->has('success'))
@@ -40,16 +40,17 @@
                             </td>
                             @if (Auth::user()->role == 'admin')
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <div class=flex >
+                                    <div class=flex>
                                         <a href="/ipAddress/update/{{ $item->id }}">
                                             <button class=' items-center'>
                                                 <img src='/img/edit.png' alt=''class='w-[20px] h-[20px] '>
                                             </button>
                                         </a>
-                                        <form action="/ipAddress/delete/{{ $item->id }}" method="POST" >
+                                        <form action="/ipAddress/delete/{{ $item->id }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-red-600 hover:text-red-900 ml-4" onclick="return confirm('Are you sure?')>
+                                            <button type="submit" class="text-red-600 hover:text-red-900 ml-4"
+                                                onclick="return confirm('Are you sure?')">
                                                 <img src='/img/sampah.png' alt=''class='w-[20px] h-[20px] '>
                                             </button>
                                         </form>
