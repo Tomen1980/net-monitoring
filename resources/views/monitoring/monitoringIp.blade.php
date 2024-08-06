@@ -66,6 +66,8 @@
                 </tbody>
             </table>
         </div>
-        {{ $ips->links() }}
+        <div class='mt-4 font-Fredoka'>
+            {{ $ips->links() }}
+        </div>
     </div>
 @endsection
